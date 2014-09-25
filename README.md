@@ -5,7 +5,7 @@
 把`TortoiseSVN`的`bin`目录加入到系统的`PATH`里
 
 ##使用打包后的`fucksvn.exe`
-1. 下载`fucksvn.exe`到项目主目录里, 执行(例子):
+下载`fucksvn.exe`到项目主目录里, 执行(例子):
 `fucksvn.exe application/index.php fuckyou`
 
 ##使用源代码`fucksvn.py`
