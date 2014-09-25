@@ -10,7 +10,7 @@ SVN_LOG_CMD = "svn.exe log"
 SVN_CAT_CMD = "svn.exe cat"
 
 def backtrack(file, regxp):
-    versions = getReversedVersionsByFile(file)
+    versions = getVersionsByFile(file, reverse=True)
     for version in versions:
         v, author = version
 
@@ -21,7 +21,7 @@ def backtrack(file, regxp):
             print "version: %s, author: %s" % (v, author)
             break
 
-def getReversedVersionsByFile(file):
+def getVersionsByFile(file, reverse=True):
     fh = os.popen("%s %s" % (SVN_LOG_CMD, file), "r")
     versions = []
 
@@ -32,7 +32,8 @@ def getReversedVersionsByFile(file):
             versions.append(
                 (m.group(1), AUTHOR_RE.search(line).group(1))
             )
-    versions.reverse()
+            
+    if reverse: versions.reverse()
 
     return versions
 
